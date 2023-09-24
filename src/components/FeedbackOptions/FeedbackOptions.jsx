@@ -1,5 +1,3 @@
-// import css from './FeedbackOptions.module.css';
-
 export default function FeedbackOptions({ onLeaveFeedback }) {
   return (
     <div>
