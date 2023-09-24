@@ -1,9 +1,7 @@
 import Section from 'components/Section/Section';
-import Statistics from 'components/Statistics/Statistics';
-import React from 'react';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import React, { Component } from 'react';
 
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
     good: 0,
     neutral: 0,
