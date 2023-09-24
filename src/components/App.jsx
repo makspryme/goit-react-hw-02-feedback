@@ -23,7 +23,6 @@ export default class App extends Component {
   };
 
   onLeaveFeedback = event => {
-    console.log(event.target.value);
     switch (event.target.value) {
       case 'good':
         this.setState(prevState => ({
