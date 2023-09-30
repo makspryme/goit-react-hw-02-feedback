@@ -11,17 +11,32 @@ export default function Section({
   total,
   positivePercentage,
 }) {
+  const options = [
+    {
+      btnText: 'Good',
+      value: 'good',
+    },
+    {
+      btnText: 'Neutral',
+      value: 'neutral',
+    },
+    {
+      btnText: 'Bad',
+      value: 'bad',
+    },
+  ];
+
   return (
     <div>
       <h1>{title}</h1>
-      <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
-      {total > 0 ? (
+      <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
+      {total() > 0 ? (
         <Statistics
           good={good}
           neutral={neutral}
           bad={bad}
-          total={total}
-          positivePercentage={positivePercentage}
+          total={total()}
+          positivePercentage={positivePercentage()}
         />
       ) : (
         <Notification message="There is no feedback" />

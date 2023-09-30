@@ -6,22 +6,20 @@ export default class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    positivePercentage: 0,
   };
 
   countTotalFeedback = () => {
-    return this.setState(prevState => ({
-      total: prevState.good + prevState.neutral + prevState.bad,
-    }));
+    return this.state.good + this.state.neutral + this.state.bad;
   };
 
   countPositiveFeedbackPercentage = () => {
-    return this.setState(prevState => ({
-      positivePercentage: Math.ceil((prevState.good / prevState.total) * 100),
-    }));
+    const total = this.state.good + this.state.neutral + this.state.bad;
+    if (total > 0) {
+      return Math.ceil((this.state.good / total) * 100);
+    }
   };
 
+  // незнаю як замінти switch :( шукав у слаці і тд.
   onLeaveFeedback = event => {
     switch (event.target.value) {
       case 'good':
@@ -60,8 +58,8 @@ export default class App extends Component {
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
-          total={this.state.total}
-          positivePercentage={this.state.positivePercentage}
+          total={this.countTotalFeedback}
+          positivePercentage={this.countPositiveFeedbackPercentage}
         />
       </div>
     );
